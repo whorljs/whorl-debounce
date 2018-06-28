@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2017",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": "./dist",
+        "experimentalDecorators": true,
+        "paths": {
+            "*": ["node_modules/*", "__tests__/**/*"]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "__tests__/**/*"
+    ]
+}

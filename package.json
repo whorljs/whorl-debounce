@@ -1,10 +1,12 @@
 {
-  "name": "whorl-debounce",
+  "name": "@whorljs/debounce",
   "version": "0.0.0",
   "description": "whorl debounce decorator",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

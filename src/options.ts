@@ -1,7 +1,5 @@
 interface DebounceOptions {
-    leading?: boolean;
-    trailing?: boolean;
-    maxWait?: number;
+    immediate?: boolean
 };
 
 export { DebounceOptions };

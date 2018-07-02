@@ -1,6 +1,10 @@
 import { debounce } from '../src';
 
 class debounceTest {
+    constructor() {
+        this.sum = this.sum.bind(this);
+        this.sub = this.sub.bind(this);
+    }
     run() { }
 
     @debounce(100)

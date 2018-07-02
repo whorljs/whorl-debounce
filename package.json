@@ -40,7 +40,7 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
+        "tsConfigFile": "tsconfig.test.json"
       }
     },
     "testMatch": [

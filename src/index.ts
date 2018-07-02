@@ -11,7 +11,7 @@
 import { DebounceOptions } from './options';
 
 function debounce(wait: number, options?: DebounceOptions) {
-    return (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<Function>) => {
+    return function (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<Function>):any {
         let func: Function = descriptor.value;
         wait = +wait || 0;
         let timerId: number;
@@ -20,21 +20,22 @@ function debounce(wait: number, options?: DebounceOptions) {
             immediate: false
         };
         
-        interface F { (): any; cancel:Function; flush: Function; pending: Function;}
-        let debounced = <F>((...args: any[]): any => {
+        function debounced(...args: any[]): any {
             let delayed = () => {
-                if(!options.immediate) func.apply(target, args);
+                if(!options.immediate) func.apply(this || target, args);
                 timerId = null;
             }
 
             if(timerId) clearTimeout(timerId);
             else if(options.immediate) {
-                func.apply(target, args);
+                func.apply(this || target, args);
             }
             timerId = setTimeout(delayed, wait);
-        });
+        };
 
         descriptor.value = debounced;
+
+        return descriptor;
     }
 }
 
